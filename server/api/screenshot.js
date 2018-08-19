@@ -9,8 +9,7 @@ const config = require('../../server/config.js')
 
 router.get('/', (req, res) => {
 
-    let { url , device } = req.query
-
+    let { url , device } = req.query;
     let width = 0;
     let height = 0;
 
@@ -57,7 +56,7 @@ router.get('/', (req, res) => {
                             newImage.save((e, doc) => {
                                 if (e) res.send(e)
                                 else if (doc) res.send({
-                                    name:`${name}-${device}.png`,
+                                    name:`${name}-${device}-${time}.png`,
                                     link:`${config.server}/getscreenshot/${name}-${device}-${time}.png`
                                 })
                             })
@@ -73,7 +72,6 @@ router.get('/', (req, res) => {
         console.log('invalid url')
         res.send('invalid url')
     }
-
 
 })
 

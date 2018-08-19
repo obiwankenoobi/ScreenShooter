@@ -16,6 +16,9 @@ router.get('/:url', (req, res) => {
     File.
         findOne({ name:url}, 'file').
         cursor().
+        on('error', () => { 
+            console.log('error!'); 
+        }).
         on('data', (doc) => { 
             res.set("Content-Type", "image/png")
             res.write(doc.file)
@@ -24,6 +27,7 @@ router.get('/:url', (req, res) => {
             res.end()
             console.log('Done!'); 
         });
+
 
 })
 

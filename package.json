@@ -5,7 +5,8 @@
     "dev": "node server.js",
     "build": "next build",
     "heroku-postbuild": "next build",
-    "start": "NODE_ENV=production node server.js -p $PORT"
+    "start": "NODE_ENV=production node server.js -p $PORT",
+    "test": "mocha Helpers/test --timeout 10000"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -36,6 +37,9 @@
     "util": "^0.11.0"
   },
   "devDependencies": {
-    "jest": "^23.5.0"
+    "jest": "^23.5.0",
+    "mocha": "^5.2.0",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0"
   }
 }

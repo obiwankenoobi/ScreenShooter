@@ -44,6 +44,8 @@ let limiter = new RateLimit({
   delayMs: 0 // disable delaying - full speed until the max limit is reached
 });
 
+let exportServer;
+
 app.prepare()
   .then(() => {
     const server = express()
@@ -83,8 +85,13 @@ app.prepare()
       if (err) throw err
       console.log('> Ready on http://localhost:3000')
     })
+
+
+
   })
   .catch((ex) => {
     console.error(ex.stack)
     process.exit(1)
   })
+
+
