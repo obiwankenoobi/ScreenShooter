@@ -1,3 +1,6 @@
 logs
-
+node_modules/
+node_modules/
+node_modules/*
+.next/
 Helpers/ping.js
