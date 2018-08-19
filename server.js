@@ -69,7 +69,7 @@ app.prepare()
 
     // pages
     server.use('/', index)    
-    server.use('/dics', docs)
+    server.use('/docs', docs)
 
     // api
     server.use('/screenshot', screenshot)
