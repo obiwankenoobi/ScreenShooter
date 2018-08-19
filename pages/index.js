@@ -27,6 +27,7 @@ class Index extends Component {
             .then((res)=> {
                 console.log(res.data)
                 if (res.data != 'no such page' && res.data != 'invalid url') {
+                    console.log("res.data != 'no such page' && res.data != 'invalid url'")
                     this.setState({[device]:res.data.link}, () => {
                         this.setState({
                             showImage:true,

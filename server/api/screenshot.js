@@ -35,8 +35,9 @@ router.get('/', (req, res) => {
             height:height
         })
             .then(img => {
+                console.log('this is img outside', img)
                 if (img != 'no such page') {
-                    console.log('this is img', img)
+                    console.log('this is img inside', img)
                     let nameArr = url.split('.')
                     console.log(nameArr)
                     let name;
@@ -64,7 +65,7 @@ router.get('/', (req, res) => {
                     })
                 } else {
                     console.log('err fetching image')
-                    res.send('invalid address')
+                    res.send('no such page')
                 }
     
             })
