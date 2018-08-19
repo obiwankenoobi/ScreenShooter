@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require('cors')
 const RateLimit = require('express-rate-limit');
-// anti ddos ..
+// anti ddos ...
 const Ddos = require('ddos')
 let ddos = new Ddos({burst:10, limit:15})
 
