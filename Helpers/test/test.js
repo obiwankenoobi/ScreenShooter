@@ -21,16 +21,15 @@ describe('ScreenShot', () => {
     before(() => {
         File.deleteMany((e , removed) => {
             if (e) console.log (e)
-            if (removed) console.log('removed')
         })
     })
 
     // test for trying capture unexisting url
     describe('GET /screenshot unexisting url', () => {
-        it('should create a new screenshot', (done) => {
+        it('should return "no such page" in response', (done) => {
             chai.request(config.server)
             .get('/screenshot')
-            .query({url:'fakeUrl.fake', device:'desktop'})
+            .query({url:'fusionofideas.com', device:'desktop'})
             .end((err, res) => {
                 res.should.have.status(200);
                 res.text.should.be.eql('no such page');
@@ -41,10 +40,10 @@ describe('ScreenShot', () => {
 
     // test for trying invalid url
     describe('GET /screenshot trying capture invalid url', () => {
-        it('should create a new screenshot', (done) => {
+        it('should return "invalid url" in response', (done) => {
             chai.request(config.server)
             .get('/screenshot')
-            .query({url:'1234567890', device:'desktop'})
+            .query({url:'acvfgfggdfgd', device:'desktop'})
             .end((err, res) => {
                 res.should.have.status(200);
                 res.text.should.be.eql('invalid url');
@@ -85,7 +84,7 @@ describe('ScreenShot', () => {
 
     // test for unexsiting images
     describe('GET /getscreenshot streaming unexsiting image', () => {
-        it('should return empty object', (done) => {
+        it('should return empty object because there is no image in that url', (done) => {
             chai.request(config.server)
             .get(`/getscreenshot/unexsitingFile`)
             .end((err, res) => {

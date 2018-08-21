@@ -155,14 +155,14 @@ const style = (
             .dsk-img {
                 width:auto;
                 height:200px;
-                margin-right:0.5rem
+                margin-right:1rem;
                 margin-bottom:1rem;
             }
 
             .phone-img {
                 width:auto;
                 height:200px;
-                margin-left:0.5rem
+                margin-left:1rem;
                 margin-bottom:1rem;
             }
         `}
